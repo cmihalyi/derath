@@ -1,0 +1,9 @@
+<div>
+    <h1>I'm movielist.html</h1>
+    <div ng-repeat="movie in movieList">
+        <p class="movie-list">
+            <img src="{{movie.poster_path.poster_sizes.w154}}" />
+            <a href="#/movie/{{movie.id}}" ng-click="getSpecificMovieData({{movie.id}})">{{movie.title}} - {{movie.id}}</a>
+        </p>
+    </div>
+</div>

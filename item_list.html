@@ -1,0 +1,29 @@
+<div>
+    <div data-ng-if="searchParams">    
+        <h1>Results searching for "{{searchParams.query}}" in {{searchParams.type}}</h1>
+    </div>
+    <!--
+    <div data-ng-if="searchParams.isPeople">this is a people search</div>
+    <div data-ng-if="searchParams.isMovie">this is a movie search</div>
+    <div data-ng-if="!searchParams">this is NOT a search page</div>
+    <div data-ng-if="movieList[0].title">there are titles which mean this must be a list of movies</div>
+    <div data-ng-if="movieList[0].name">there are names which mean this must be a list of people</div>
+    -->
+    <div data-ng-if="movieList[0].name">
+        <ul class="inline">
+            <li ng-repeat="person in movieList" class="movie-list">
+                <a href="#/person/{{person.id}}" ng-click="getSpecificPersonData({{person.id}})"><img src="{{person.profile_path.profile_sizes.w185}}" /></a>
+                <!--<h5>{{person.name}}</h5>-->
+            </li>
+        </ul>    
+    </div>
+
+    <div data-ng-if="movieList[0].title">
+        <ul class="inline">
+            <li ng-repeat="movie in movieList" class="movie-list">
+                <img src="{{movie.poster_path.poster_sizes.w154}}" />
+                <!--<h5><a href="#/movie/{{movie.id}}" ng-click="getSpecificMovieData({{movie.id}})">{{movie.title}} - {{movie.release_date}}</a></h5>-->
+            </li>
+        </ul>
+    </div>
+</div>

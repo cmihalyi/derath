@@ -1,0 +1,9 @@
+<div>
+    <h1>I'm peoplelist.html</h1>
+    <ul class="movie-list">
+        <li ng-repeat="people in movieList">
+            <img src="{{people.profile_path.poster_sizes.w92}}" />
+            <a href="#/person/{{people.id}}" ng-click="getSpecificPersonData({{people.id}})">{{people.name}}</a>
+        </li>    
+    </ul>
+</div>

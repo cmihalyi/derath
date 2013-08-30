@@ -1,0 +1,70 @@
+<div>
+    <h4>This is the Movie Page</4>
+    <img src="{{movieList.backdrop_path.backdrop_sizes.original}}" />
+    <h1>{{movieList.title}}</h1>
+    <h4>{{movieList.tagline}}</h4>
+    <p>{{movieList.overview}}</p>
+    <p>{{movieList.release_date}}</p>
+    <p>{{movieList.runtime}} mins</p>
+    <ul>
+        <li data-ng-repeat="genre in movieList.genres">{{genre.name}}</li>
+    </ul>
+</div>
+
+<div data-ng-if="movieList.casts.cast && movieList.casts.crew">
+    <h3>Production Information</h3>
+    <div>
+        <h4>Cast</h4>
+        <ul data-ng-if="movieList.casts.cast">
+            <li data-ng-repeat="castmember in movieList.casts.cast">{{castmember.character}} : <a href="#/person/{{castmember.id}}" ng-click="getPersonData({{castmember.id}})">{{castmember.name}}</a></li>
+        </ul>
+        <p data-ng-if="!movieList.casts.cast">No Information Available</p>        
+    </div>
+    <div>
+        <h4>Crew</h4>
+        <ul data-ng-if="movieList.casts.crew">
+            <li data-ng-repeat="crewmember in movieList.casts.crew">{{crewmember.job}} : <a href="#/person/{{crewmember.id}}" ng-click="getPersonData({{crewmember.id}})">{{crewmember.name}}</a></li>
+        </ul>
+        <p data-ng-if="!movieList.casts.crew">No Information Available</p>        
+    </div>
+</div>
+
+<div>
+    <h3>Reviews</h3>
+    <ul data-ng-if="movieList.reviews.results">
+        <li data-ng-repeat="review in movieList.reviews.results">{{review}}</li>
+    </ul>
+    <p data-ng-if="!(movieList.reviews.results)">No Information Available</p>
+</div>
+
+<div data-ng-if="movieList.similar_movies.results">
+    <h3>If You Are Interested in {{movieList.title}} You Should Checkout</h3>
+    <ul>
+        <li data-ng-repeat="similar in movieList.similar_movies.results"><a href="#/movie/{{similar.id}}" ng-click="getSpecificMovieData({{similar.id}})">{{similar.title}}</a> : {{similar.release_date}}</li>
+    </ul>
+</div>
+
+<div>
+    <h3>Trailers</h3>
+    <ul>
+        <li data-ng-repeat="trailer in movieList.trailers">{{trailer}}</li>
+    </ul>
+</div>
+
+<!-- ex data obj
+title: "The World's End"
+tagline: "Good food. Fine ales. Total Annihilation."
+overview: "Five friends who reunite in an attempt to top their epic pub crawl from 20 years earlier unwittingly become humankind's only hope for survival."
+backdrop_path: "/nxmfCboD51qgc2o6bata0iDwbIK.jpg"
+casts: Object
+genres: Array[3]
+id: 107985
+imdb_id: "tt1213663"
+poster_path: "/6TrjHxbc1YUfv4av5yyZdBbDokT.jpg"
+release_date: "2013-08-23"
+reviews: Object
+results: Array[0]
+runtime: 109
+similar_movies: Object
+trailers: Object
+-->

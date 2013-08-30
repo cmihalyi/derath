@@ -1,0 +1,8 @@
+<div>
+    <h1>This is search_movies.html</h1>
+    <div ng-repeat="movie in movieList">
+        <p class="movie-list">
+            <a href="#/movie/{{movie.id}}" ng-click="getSpecificMovieData({{movie.id}})">{{movie.title}} - {{movie.release_date}}</a>
+        </p>
+    </div>
+</div>

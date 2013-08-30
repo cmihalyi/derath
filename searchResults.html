@@ -1,0 +1,21 @@
+<div>
+    <h1>Results from "{{searchParams.query}}" in {{searchParams.type}}</h1>
+
+    <div data-ng-if="searchParams.isPeople">
+        <div ng-repeat="person in movieList">
+            <p class="movie-list">
+                <img src="{{person.profile_path.profile_sizes.w185}}" />
+                <a href="#/person/{{person.id}}" ng-click="getSpecificPersonData({{person.id}})">{{person.name}}</a>
+            </p>
+        </div>    
+    </div>
+
+    <div data-ng-if="searchParams.isMovie">
+        <div ng-repeat="movie in movieList">
+            <p class="movie-list">
+                <img src="{{movie.poster_path.poster_sizes.w154}}" />
+                <a href="#/movie/{{movie.id}}" ng-click="getSpecificMovieData({{movie.id}})">{{movie.title}} - {{movie.release_date}}</a>
+            </p>
+        </div>
+    </div>
+</div>
